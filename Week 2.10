@@ -1,0 +1,10 @@
+N = int(input())
+packets = []
+for i in range(4):
+    count = int(input())
+    packets.append(count)
+for packet in packets:
+    if packet % N == 0:
+        print("True", end=" ")
+    else:
+        print("False", end=" ")
