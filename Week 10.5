@@ -1,0 +1,14 @@
+arr = list(map(int, input().split()))
+
+freq = {}
+
+for num in arr:
+    if num in freq:
+        freq[num] += 1
+    else:
+        freq[num] = 1
+sorted_freq = sorted(freq.items())
+
+for num, frequency in sorted_freq:
+    print(num, frequency)
+    
