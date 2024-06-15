@@ -1,0 +1,10 @@
+import math
+
+a = int(input())
+b = 0
+
+if a > 0:
+    b = math.log(a, 2)
+
+print(bool(pow(2, int(b)) == a and a != 0))
+
