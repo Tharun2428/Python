@@ -1,0 +1,14 @@
+def str(a):
+    result=""
+    i=0
+    while i<len(a):
+        char=a[i]
+        i=i+1
+        num=""
+        while i<len(a) and a[i].isdigit():
+            num=num+a[i]
+            i+=1
+        result= result+char*int(num)
+    return result
+a=input()
+print(str(a))
