@@ -1,0 +1,19 @@
+n = int(input())
+votes = []
+for _ in range(n):
+    vote = input()
+    votes.append(vote)
+
+vote_count = {}
+for name in votes:
+    if name in vote_count:
+        vote_count[name] += 1
+    else:
+        vote_count[name] = 1
+
+max_votes = max(vote_count.values())
+max_vote_candidates = [name for name, count in vote_count.items() if count == max_votes]
+
+winner = min(max_vote_candidates)
+
+print(winner)
