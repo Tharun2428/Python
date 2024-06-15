@@ -1,0 +1,21 @@
+def count_distinct_pairs_with_sum_k(t, K):
+    seen = set()
+    distinct_pairs = set()
+    
+    for num in t:
+        counterpart = K - num
+        if counterpart in seen:
+            # Ensure the pair is in (smaller, larger) order
+            pair = (min(num, counterpart), max(num, counterpart))
+            distinct_pairs.add(pair)
+        seen.add(num)
+    
+    return len(distinct_pairs)
+
+# Get input from user
+t = tuple(map(int, input().split(',')))
+K = int(input())
+
+# Calculate and print the result
+result = count_distinct_pairs_with_sum_k(t, K)
+print(f"{result}")
