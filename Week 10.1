@@ -1,0 +1,16 @@
+n = int(input())
+nums = list(map(int, input().split()))
+k = int(input())
+num_set = set()
+found = False
+for num in nums:
+    complement = k - num
+    if complement in num_set:
+        found = True
+        break
+    num_set.add(num)
+
+if found:
+    print("Yes")
+else:
+    print("No")
