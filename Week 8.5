@@ -1,0 +1,31 @@
+num_students = int(input())
+student_data = {}
+
+for _ in range(num_students):
+    student_info = input().split()
+    student_name = student_info[0]
+    marks = list(map(int, student_info[1:]))
+    student_data[student_name] = {
+        'test_mark': marks[0],
+        'assignment_mark': marks[1],
+        'lab_mark': marks[2]
+    }
+
+average_scores = {name: sum(info.values()) / len(info) for name, info in student_data.items()}
+
+max_average_score = max(average_scores.values())
+highest_average_students = [name for name, score in average_scores.items() if score == max_average_score]
+
+max_assignment_mark = max([info['assignment_mark'] for info in student_data.values()])
+highest_assignment_students = [name for name, info in student_data.items() if info['assignment_mark'] == max_assignment_mark]
+
+min_lab_mark = min([info['lab_mark'] for info in student_data.values()])
+lowest_lab_students = [name for name, info in student_data.items() if info['lab_mark'] == min_lab_mark]
+
+min_average_score = min(average_scores.values())
+lowest_average_students = [name for name, score in average_scores.items() if score == min_average_score]
+
+print(" ".join(highest_average_students))
+print(" ".join(highest_assignment_students))
+print(" ".join(sorted((lowest_lab_students))))
+print(" ".join(lowest_average_students))
